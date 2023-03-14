@@ -95,7 +95,7 @@ fi
 ![1st](first(failingtests)URL.png)
 This is an example of a submission that compiles, but does't pass the testers.
 As you can see, when the submission fails JUnit, my script prints out the line from the JUnit error output with the statistics of the number of tests run and number of tests failed.
-I think this way looks much cleaner than had I just done something like `cat junitOutput.txt`; this is given that we are trying to hide information from the student about which exact tests failed, of course. Otherwise, the JUnit output would often contain helpful information that we wouldn't want to censor.
+I think this way looks much cleaner than had I just done something like `cat jUnitOutput.txt`; this is given that we are trying to hide information from the student about which exact tests failed, of course. Otherwise, the JUnit output would often contain helpful information that we wouldn't want to censor.
 
 
 **Running on a corrected submission that passes JUnit:**
