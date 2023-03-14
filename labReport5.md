@@ -32,7 +32,7 @@ Using -print with find prints the matching path and -quit stops the search after
 Previously, I was using `cp` to create a new directory called `code-and-tests` to "get the student's code and tester file into the same directory." This required me to run two more `cp` commands, one of which I used the `-r` option on. This was because I needed the JUnit libraries in the same directory that I was running the tests in. 
 Turns out, all I needed to do was copy the path of the students submission to the directory I was currently in, using `cp ..`. This way, all the files and libraries I need are in the same spot. This also saved me from needing an extra `cd` command, which, if this were a real Autograder, I would imagine would save time in the long run.
 ### - How I reported pass/fail *(Lines 45-50)*
-In my first draft of the script, I was simply redirecting the standard error to a `.txt` file and printing that entire file with `cat`. While it wasn't problematic, I thought an Autograder should probably report a more custom summary of the results from running tests than the given compile-time errors and JUnit output. I wanted to figure out a way to print a grade based on the score out of 100 that the student got, but I settled on printing just a select line from the JUnit output for the student so they didn't have to deal with reading through the entire JUnit summary. I did this by first adding a conditional that checked whether or not there were even any errors when running JUnit or not. Next, I utilized the `grep` command to search for the line in the JUnit output in my `.txt` file that corresponded to the number of tests passed and run, and printed that with `echo`.
+In my first draft of the script, I was simply redirecting the standard error to a `.txt` file and printing that entire file with `cat`. While it wasn't problematic, I thought an Autograder should probably report a more custom summary of the results from running tests than the given compile-time errors and JUnit output. I wanted to figure out a way to print a grade based on the score out of 100 that the student got, but I settled on printing just a select line from the JUnit output for the student so they didn't have to read through the entire JUnit summary. I did this by first adding a conditional that checked whether or not there were even any errors when running JUnit. Next, I utilized the `grep` command to search for the line in the JUnit output in my `.txt` file that corresponded to the number of tests passed and run, and printed that with `echo`.
 
 
 ### My new/revised Grading Script for this Lab Report:
@@ -51,7 +51,7 @@ set -e
 cd student-submission
 
 # Searching for the path with the file in it
-# USED CHAT-CPT TO PRODUCE THIS LINE BELOW
+# USED CHAT-CPT TO PRODUCE THE TWO LINES BELOW
 list_examples_path=$(find . -name "ListExamples.java" -print -quit)
 if [[ -n $list_examples_path ]]; then
     echo 'Correct file found in submission: "ListExamples.java"'
