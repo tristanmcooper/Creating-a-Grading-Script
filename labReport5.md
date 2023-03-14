@@ -13,7 +13,7 @@ For this lab report, I decided to dive back in to *Lab 6* (about creating a grad
 ### My original grading script from lab (1st version):
 
 
-<img src= "originalGradingScript.png" alt="script" width="25%" height="25%">
+<img src= "originalGradingScript.png" alt="script" width="35%" height="35%">
 
 
 
